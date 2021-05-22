@@ -11,11 +11,17 @@ import { theme } from '../core/theme'
 import { emailValidator } from '../helpers/emailValidator'
 import { passwordValidator } from '../helpers/passwordValidator'
 import { nameValidator } from '../helpers/nameValidator'
+import {useDispatch, useSelector} from "react-redux";
+import { signup } from "../actions/auth";
 
 export default function RegisterScreen({ navigation }) {
   const [name, setName] = useState({ value: '', error: '' })
   const [email, setEmail] = useState({ value: '', error: '' })
   const [password, setPassword] = useState({ value: '', error: '' })
+
+  const auth = useSelector((state) => state.auth);
+  const { errorMessageSignUp } = auth;
+  const dispatch = useDispatch();
 
   const onSignUpPressed = () => {
     const nameError = nameValidator(name.value)
@@ -27,10 +33,13 @@ export default function RegisterScreen({ navigation }) {
       setPassword({ ...password, error: passwordError })
       return
     }
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'Dashboard' }],
-    })
+
+    dispatch(signup(name, email, password))
+
+    // navigation.reset({
+    //   index: 0,
+    //   routes: [{ name: 'Dashboard' }],
+    // })
   }
 
   return (
@@ -38,8 +47,11 @@ export default function RegisterScreen({ navigation }) {
       <BackButton goBack={navigation.goBack} />
       <Logo />
       <Header>Create your Account</Header>
+      { errorMessageSignUp && <View style={{alignItems: 'center', marginTop: 20}}>
+        <Text style={styles.errorMessage}>{errorMessageSignUp}</Text>
+      </View> }
       <TextInput
-        label="Name"
+        label="Username"
         returnKeyType="next"
         value={name.value}
         onChangeText={(text) => setName({ value: text, error: '' })}
@@ -71,6 +83,7 @@ export default function RegisterScreen({ navigation }) {
         mode="contained"
         onPress={onSignUpPressed}
         style={{ marginTop: 24 }}
+        loading={auth.signingUp}
       >
         Sign Up
       </Button>
@@ -93,4 +106,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: theme.colors.text,
   },
+  errorMessage: {
+    color: 'red'
+  }
 })
