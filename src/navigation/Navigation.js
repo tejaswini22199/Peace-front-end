@@ -9,6 +9,7 @@ import {
     Dashboard
   } from '../screens'
 import JournalHome from '../screens/Journal'
+import MeditateScreen from '../screens/MeditateScreen'
 
 const Stack = createStackNavigator();
 
@@ -58,5 +59,10 @@ export default function Navigation(props) {
               headerShown: false
           }}
           name="ResetPasswordScreen" component={ResetPasswordScreen}/>
+          <Stack.Screen 
+            options={{
+              headerShown: false
+          }}
+          name="MeditateScreen" component={MeditateScreen}/>
     </Stack.Navigator>;
 }

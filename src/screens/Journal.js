@@ -39,11 +39,9 @@ export default function JournalHome({ navigation }) {
 const styles = StyleSheet.create({
   heads: {
     position: 'absolute',
-    width: 322,
-    height: 100,
     top: 50,
     fontWeight: 'bold',
-    size: 30,
+    size: 40,
     lineHeight: 33,
     textAlign: 'center'
   },

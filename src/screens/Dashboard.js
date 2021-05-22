@@ -125,6 +125,7 @@ export default function Dashboard({ navigation }) {
               marginHorizontal: 10,
               height: 133.94,
             }}
+            onPress={()=>navigation.navigate('MeditateScreen')}
           >
             <Image source={require('../assets/Icons/Heart.png')} style={styles.heart} />
             <Text style={{ fontSize: 17, color: "#fff" }}>Meditate</Text>
