@@ -8,7 +8,7 @@ import Navigation from "./src/navigation/Navigation";
 import {useEffect, useState} from "react";
 import {loggedIn} from "./src/actions/auth";
 import {getAuthAsyncStorage} from "./src/services/getAuthAsyncStorage";
-import { theme } from './src/core/theme'
+import { theme } from './src/core/theme';
 import 'react-native-gesture-handler';
 
 

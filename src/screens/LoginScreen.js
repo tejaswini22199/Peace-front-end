@@ -26,13 +26,13 @@ export default function LoginScreen({ navigation }) {
 
 
   const onLoginPressed = () => {
-    const passwordError = passwordValidator(password.value)
-    const usernameError = nameValidator(username.value)
-    if (passwordError || usernameError) {
-      setUsername({ ...username, error: usernameError })
-      setPassword({ ...password, error: passwordError })
-      return
-    }
+    // const passwordError = passwordValidator(password.value)
+    // const usernameError = nameValidator(username.value)
+    // if (passwordError || usernameError) {
+    //   setUsername({ ...username, error: usernameError })
+    //   setPassword({ ...password, error: passwordError })
+    //   return
+    // }
     
     dispatch(login(username, password))
 
@@ -52,16 +52,15 @@ export default function LoginScreen({ navigation }) {
         value={username.value}
         onChangeText={(text) => setUsername({ value: text, error: '' })}
         autoCapitalize="none"
-        error={!!username.error}
-        errorText={username.error}
+        error={!!errorMessageLogin}
       />
       <TextInput
         label="Password"
         returnKeyType="done"
         value={password.value}
         onChangeText={(text) => setPassword({ value: text, error: '' })}
-        error={!!password.error}
-        errorText={password.error}
+        error={!!errorMessageLogin}
+        // errorText={password.error}
         secureTextEntry
       />
       

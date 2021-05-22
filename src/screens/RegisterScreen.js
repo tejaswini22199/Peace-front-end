@@ -18,6 +18,7 @@ export default function RegisterScreen({ navigation }) {
   const [name, setName] = useState({ value: '', error: '' })
   const [email, setEmail] = useState({ value: '', error: '' })
   const [password, setPassword] = useState({ value: '', error: '' })
+  const [password2, setPassword2] = useState({ value: '', error: '' })
 
   const auth = useSelector((state) => state.auth);
   const { errorMessageSignUp } = auth;
@@ -26,7 +27,7 @@ export default function RegisterScreen({ navigation }) {
   const onSignUpPressed = () => {
     const nameError = nameValidator(name.value)
     const emailError = emailValidator(email.value)
-    const passwordError = passwordValidator(password.value)
+    const passwordError = passwordValidator(password.value, password2.value)
     if (emailError || passwordError || nameError) {
       setName({ ...name, error: nameError })
       setEmail({ ...email, error: emailError })
@@ -35,11 +36,6 @@ export default function RegisterScreen({ navigation }) {
     }
 
     dispatch(signup(name, email, password))
-
-    // navigation.reset({
-    //   index: 0,
-    //   routes: [{ name: 'Dashboard' }],
-    // })
   }
 
   return (
@@ -75,6 +71,14 @@ export default function RegisterScreen({ navigation }) {
         returnKeyType="done"
         value={password.value}
         onChangeText={(text) => setPassword({ value: text, error: '' })}
+        error={!!password.error}
+        secureTextEntry
+      />
+      <TextInput
+        label="Confirm Password"
+        returnKeyType="done"
+        value={password2.value}
+        onChangeText={(text) => setPassword2({ value: text, error: '' })}
         error={!!password.error}
         errorText={password.error}
         secureTextEntry

@@ -1,9 +1,34 @@
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { TouchableOpacity } from "react-native";
 import { View, Text, StatusBar } from "react-native";
 import React from 'react'
 import Button from '../components/Button'
 import {useDispatch, useSelector} from "react-redux";
 import { logout } from "../actions/auth";
+import { Image, StyleSheet } from 'react-native'
+import {getAuthAsyncStorage} from '../services/getAuthAsyncStorage'
+// export default function Logo() {
+//   return <Image source={require('../assets/logo.png')} style={styles.image} />
+// }
+
+const styles = StyleSheet.create({
+  heart: {
+    width: 36.68,
+    height: 34.94,
+    marginBottom: 10
+  },
+  journal: {
+    width: 36.68,
+    height: 40,
+    marginBottom: 10
+  },
+  pause: {
+    width: 36.68,
+    height: 40,
+    marginTop: -15,
+    marginRight: 30
+  },
+})
+
 export default function Dashboard({ navigation }) {
   const auth = useSelector((state) => state.auth);
   
@@ -65,21 +90,28 @@ export default function Dashboard({ navigation }) {
             width: 287,
           }}
         >
+          <View
+          style={{
+            flexDirection: "row",
+            marginTop: 12,
+          }}
+        >
+          <Image source={require('../assets/Icons/Pause.png')} style={styles.pause} />
           <Text
             style={{
               fontSize: 18,
               fontWeight: "500",
-              lineHeight: 108.1,
               color: "#fff",
+              marginTop: -5
             }}
           >
             Pause app usage
           </Text>
+          </View>
         </TouchableOpacity>
         <View
           style={{
             flexDirection: "row",
-
             marginTop: 27,
           }}
         >
@@ -94,6 +126,7 @@ export default function Dashboard({ navigation }) {
               height: 133.94,
             }}
           >
+            <Image source={require('../assets/Icons/Heart.png')} style={styles.heart} />
             <Text style={{ fontSize: 17, color: "#fff" }}>Meditate</Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -107,7 +140,9 @@ export default function Dashboard({ navigation }) {
               width: 132,
               height: 133.94,
             }}
+            onPress={()=>navigation.navigate('Journal')}
           >
+            <Image source={require('../assets/Icons/Journal.png')} style={styles.journal} />
             <Text style={{ fontSize: 17, color: "#fff" }}>Journal</Text>
           </TouchableOpacity>
         </View>

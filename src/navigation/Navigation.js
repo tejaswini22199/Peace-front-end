@@ -6,8 +6,9 @@ import {
     LoginScreen,
     RegisterScreen,
     ResetPasswordScreen,
-    Dashboard,
+    Dashboard
   } from '../screens'
+import JournalHome from '../screens/Journal'
 
 const Stack = createStackNavigator();
 
@@ -42,6 +43,11 @@ export default function Navigation(props) {
               headerShown: false
             }}
             name="LoginScreen" component={LoginScreen} />
+          <Stack.Screen 
+            options={{
+              headerShown: false
+            }}
+            name="Journal" component={JournalHome} />
           <Stack.Screen 
             options={{
               headerShown: false
