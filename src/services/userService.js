@@ -36,7 +36,7 @@ function signup(username, email, password) {
   formData.append('username', username_value);   //append the values with key, value pair
   formData.append('password', passvalue); //
   formData.append('email', email_value); //
-  console.log(formData)
+  //console.log(formData)
 
   return new Promise((resolve, reject) => {
     axios.post(`${API_URL}/sign_in/register/`, formData)
