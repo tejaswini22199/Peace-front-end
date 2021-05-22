@@ -7,6 +7,7 @@ import Header from '../components/Header'
 import Button from '../components/Button'
 import Paragraph from '../components/Paragraph'
 import { theme } from '../core/theme'
+import {useDispatch, useSelector} from "react-redux";
 
 export default function StartScreen({ navigation }) {
   return (
