@@ -35,8 +35,8 @@ export default function Dashboard({ navigation }) {
       >
         <Text
           style={{
-            fontSize: "30px",
-            lineHeight: "39px",
+            fontSize: 30,
+            lineHeight: 39,
             textAlign: "right",
             color: "#121338",
             fontWeight: "bold",
@@ -75,7 +75,7 @@ export default function Dashboard({ navigation }) {
             style={{
               fontSize: 18,
               fontWeight: "500",
-              lineHeight: "108.1%",
+              lineHeight: 108.1,
               color: "#fff",
             }}
           >
