@@ -15,7 +15,10 @@ export default function Navigation(props) {
   const stateType = useSelector((state) => state.type);
   const auth = useSelector((state) => state.auth);
   const userToken = auth.token ? auth.token : null;
-  return <Stack.Navigator >
+  return <Stack.Navigator 
+        options={{
+            headerShown: false
+        }}>
         {userToken === null ? (
         <Stack.Screen
             
