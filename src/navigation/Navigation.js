@@ -9,6 +9,7 @@ import {
     Dashboard
   } from '../screens'
 import JournalHome from '../screens/Journal'
+import JournalWrite from '../screens/JournalWrite'
 import MeditateScreen from '../screens/MeditateScreen'
 
 const Stack = createStackNavigator();
@@ -64,5 +65,10 @@ export default function Navigation(props) {
               headerShown: false
           }}
           name="MeditateScreen" component={MeditateScreen}/>
+          <Stack.Screen 
+            options={{
+              headerShown: false
+          }}
+          name="JournalWrite" component={JournalWrite}/>
     </Stack.Navigator>;
 }
