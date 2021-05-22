@@ -1,36 +1,32 @@
-import React from "react";
 import Icon from "@expo/vector-icons/MaterialIcons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { View, Text, StatusBar } from "react-native";
-
-
+import React from 'react'
+import Button from '../components/Button'
+import {useDispatch, useSelector} from "react-redux";
+import { logout } from "../actions/auth";
+import {Background} from "../components/Background"
 export default function Dashboard({ navigation }) {
+  const auth = useSelector((state) => state.auth);
+
+  if (!auth.user) {
+    return null;
+  }
+
+  const dispatch = useDispatch();
+  const { errorMessageLogout } = auth;
+
   return (
-    <View
-      style={{
-        width: "100%",
-        height: "100%",
-        backgroundColor: "rgb(241,235,228)",
-      }}
-    >
+    <View>
       <StatusBar hidden={true} />
-
       <View
         style={{
-          flexDirection: "row",
-          marginTop: 63,
-          marginHorizontal: 23,
+          width: "100%",
           alignItems: "center",
-          justifyContent: "space-between",
         }}
-      >
-        <Icon name="call" size={30} color="#DB0202" />
-        <Icon name="notifications" size={30} color="#130F26" />
-      </View>
-
-      <View
+        >
+        <View
         style={{
-          position: "absolute",
           width: 157,
           height: 117,
           left: 21,
@@ -46,17 +42,9 @@ export default function Dashboard({ navigation }) {
             fontWeight: "bold",
           }}
         >
-          Hello Andrew!
+          Hello {auth.user}!
         </Text>
       </View>
-
-      <View
-        style={{
-          marginTop: 164,
-          width: "100%",
-          alignItems: "center",
-        }}
-      >
         <View
           style={{
             alignItems: "center",
@@ -129,8 +117,14 @@ export default function Dashboard({ navigation }) {
             <Text style={{ fontSize: 17, color: "#fff" }}>Journal</Text>
           </TouchableOpacity>
         </View>
+        <Button
+            mode="outlined"
+            style={{marginTop: 37}}
+            loading={auth.loggingOut}
+            onPress={() => dispatch(logout())}
+      >LogOut</Button>
       </View>
-    </View>
+      </View>
   );
 }
 

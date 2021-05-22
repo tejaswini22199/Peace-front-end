@@ -7,26 +7,35 @@ import Header from '../components/Header'
 import Button from '../components/Button'
 import TextInput from '../components/TextInput'
 import BackButton from '../components/BackButton'
+import {useDispatch, useSelector} from "react-redux";
 import { theme } from '../core/theme'
-import { emailValidator } from '../helpers/emailValidator'
+import { nameValidator } from '../helpers/nameValidator'
 import { passwordValidator } from '../helpers/passwordValidator'
+import { login } from "../actions/auth";
 
 export default function LoginScreen({ navigation }) {
-  const [email, setEmail] = useState({ value: '', error: '' })
-  const [password, setPassword] = useState({ value: '', error: '' })
+
+  const [ username, setUsername ] = useState({ value: '', error: '' });
+  const [ password, setPassword ] = useState({ value: '', error: '' });
+  const auth = useSelector((state) => state.auth);
+  const { errorMessageLogin } = auth;
+  const dispatch = useDispatch();
+  if (auth.user) {
+    return null;
+  }
+
 
   const onLoginPressed = () => {
-    const emailError = emailValidator(email.value)
     const passwordError = passwordValidator(password.value)
-    if (emailError || passwordError) {
-      setEmail({ ...email, error: emailError })
+    const usernameError = nameValidator(username.value)
+    if (passwordError || usernameError) {
+      setUsername({ ...username, error: usernameError })
       setPassword({ ...password, error: passwordError })
       return
     }
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'Dashboard' }],
-    })
+    
+    dispatch(login(username, password))
+
   }
 
   return (
@@ -34,17 +43,17 @@ export default function LoginScreen({ navigation }) {
       <BackButton goBack={navigation.goBack} />
       <Logo />
       <Header>Welcome back.</Header>
+      { errorMessageLogin && <View style={{alignItems: 'center', marginTop: 20}}>
+        <Text style={styles.errorMessage}>{errorMessageLogin}</Text>
+      </View> }
       <TextInput
-        label="Email Address"
+        label="Username"
         returnKeyType="next"
-        value={email.value}
-        onChangeText={(text) => setEmail({ value: text, error: '' })}
-        error={!!email.error}
-        errorText={email.error}
+        value={username.value}
+        onChangeText={(text) => setUsername({ value: text, error: '' })}
         autoCapitalize="none"
-        autoCompleteType="email"
-        textContentType="emailAddress"
-        keyboardType="email-address"
+        error={!!username.error}
+        errorText={username.error}
       />
       <TextInput
         label="Password"
@@ -56,16 +65,16 @@ export default function LoginScreen({ navigation }) {
         secureTextEntry
       />
       
-      <Button mode="contained" onPress={onLoginPressed}>
+      <Button mode="contained" onPress={onLoginPressed} loading={auth.loggingIn}>
         Login
       </Button>
-      <View style={styles.forgotPassword}>
+      {/* <View style={styles.forgotPassword}>
         <TouchableOpacity
           onPress={() => navigation.navigate('ResetPasswordScreen')}
         >
           <Text style={styles.forgot}>Forgot your password?</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
       <View style={styles.row}>
         <Text>Don’t have an account? </Text>
         <TouchableOpacity onPress={() => navigation.replace('RegisterScreen')}>
@@ -94,4 +103,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: theme.colors.text,
   },
+  errorMessage: {
+    color: 'red'
+  }
 })
