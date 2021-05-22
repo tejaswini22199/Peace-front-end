@@ -47,7 +47,7 @@ export default function RegisterScreen({ navigation }) {
         errorText={name.error}
       />
       <TextInput
-        label="Email"
+        label="Email Adress"
         returnKeyType="next"
         value={email.value}
         onChangeText={(text) => setEmail({ value: text, error: '' })}
@@ -60,15 +60,6 @@ export default function RegisterScreen({ navigation }) {
       />
       <TextInput
         label="Password"
-        returnKeyType="done"
-        value={password.value}
-        onChangeText={(text) => setPassword({ value: text, error: '' })}
-        error={!!password.error}
-        errorText={password.error}
-        secureTextEntry
-      />
-      <TextInput
-        label="Confirm Password"
         returnKeyType="done"
         value={password.value}
         onChangeText={(text) => setPassword({ value: text, error: '' })}
