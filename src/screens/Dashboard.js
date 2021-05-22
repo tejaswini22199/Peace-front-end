@@ -1,11 +1,9 @@
-import Icon from "@expo/vector-icons/MaterialIcons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { View, Text, StatusBar } from "react-native";
 import React from 'react'
 import Button from '../components/Button'
 import {useDispatch, useSelector} from "react-redux";
 import { logout } from "../actions/auth";
-import {Background} from "../components/Background"
 export default function Dashboard({ navigation }) {
   const auth = useSelector((state) => state.auth);
 
@@ -127,5 +125,3 @@ export default function Dashboard({ navigation }) {
       </View>
   );
 }
-
-
