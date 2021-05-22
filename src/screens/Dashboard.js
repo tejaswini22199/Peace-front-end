@@ -6,13 +6,8 @@ import {useDispatch, useSelector} from "react-redux";
 import { logout } from "../actions/auth";
 export default function Dashboard({ navigation }) {
   const auth = useSelector((state) => state.auth);
-
-  if (!auth.user) {
-    return null;
-  }
-
   const dispatch = useDispatch();
-  const { errorMessageLogout } = auth;
+  // const { errorMessageLogout } = auth;
 
   return (
     <View>

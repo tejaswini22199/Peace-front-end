@@ -19,7 +19,7 @@ function login(username, password) {
       try {
         await setAuthAsyncStorage(response, username_value);
         resolve(response);
-        window.location.reload(false);
+        //window.location.reload(false);
       } catch (e) { reject(e) }
     }).catch((err) => {
       reject(err)
@@ -45,7 +45,7 @@ function signup(username, email, password) {
         //console.log(response)
         await setAuthAsyncStorage(response, username_value);
         resolve(response);
-        window.location.reload(false);
+       // window.location.reload(false);
       } catch (e) { reject(e) }
     }).catch((err) => {
       reject(err)

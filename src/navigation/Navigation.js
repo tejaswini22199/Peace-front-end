@@ -12,19 +12,16 @@ import {
 const Stack = createStackNavigator();
 
 export default function Navigation(props) {
+  const stateType = useSelector((state) => state.type);
   const auth = useSelector((state) => state.auth);
-  const userToken = auth.user ? auth.token : null;
-  //console.log(userToken);
+  const userToken = auth.token ? auth.token : null;
   return <Stack.Navigator 
-            initialRouteName="StartScreen"
-            screenOptions={{
-                headerShown: false,
-            }}>
+        options={{
+            headerShown: false
+        }}>
         {userToken === null ? (
         <Stack.Screen
-            options={{
-            headerShown: false
-            }}
+            
             name="StartScreen"
             component={StartScreen}
         />
