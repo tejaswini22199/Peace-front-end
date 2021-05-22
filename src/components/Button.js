@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     borderRadius: '38px',
     marginVertical: 10,
     paddingVertical: 2,
-    backgroundColor: '#6658F6'
+    backgroundColor: theme.colors.primary
   },
   text: {
     fontWeight: 'bold',
