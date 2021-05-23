@@ -41,15 +41,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 50,
     fontWeight: 'bold',
-<<<<<<< HEAD
-    fontSize:40,
-    lineHeight: 35,
-=======
     fontSize: 15,
     lineHeight: 33,
->>>>>>> journal
     textAlign: 'center'
-    
   },
   description:{
     fontWeight: 'bold',
