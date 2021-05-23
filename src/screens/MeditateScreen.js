@@ -5,7 +5,7 @@ import { TouchableOpacity } from 'react-native'
 // import BackButton from '../components/BackButton'
 import Button from '../components/Button'
 import TimerMinutes from './TimerMinutes'
-
+import MeditateScreen2 from './MeditateScreen2'
 export default function MeditateScreen({ navigation }){
 //  const [time,setTime]=useState({
 //     hours:new Date.getHours(),
@@ -31,7 +31,7 @@ const [Hours,setHours]=useState('');
             <Timer getHours={hours=>setHours(hours)}/>
             <TimerMinutes getMinutes={minutes=>setMinutes(minutes)}/>
             </View>
-            <Button mode="contained" onPress={() => navigation.navigate('Dashboard')}>
+            <Button mode="contained" onPress={() => navigation.navigate('MeditateScreen2')}>
                 Start
             </Button>
             <TouchableOpacity
