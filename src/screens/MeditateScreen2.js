@@ -1,8 +1,10 @@
 import React,{useState} from 'react'
 import { StyleSheet, Text, View,Image,TouchableOpacity } from 'react-native'
 import{CountdownCircleTimer } from 'react-countdown-circle-timer'
+import Button from '../components/Button'
 import { Audio } from 'expo-av';
-const MeditateScreen2= () => {
+
+export default function MeditateScreen({ navigation }){
   const [play,setPlay]=useState(false);
   const [sound,setSound]=useState();
   async function playSound() {
@@ -42,7 +44,7 @@ const MeditateScreen2= () => {
               } }>
               {
                    play?
-                   <Image style={styles.iconup} source={require('../assets/volumeUp.png')}></Image>
+                   <Image style={styles.iconup} source={require('../assets/VolumeUp.png')}></Image>
                    :
                    <Image style={styles.iconoff} source={require('../assets/Volumeoff.png')}></Image>
               }
@@ -68,18 +70,22 @@ const MeditateScreen2= () => {
       <Text>Stop</Text>
     </TouchableOpacity>
   </View>
+  <Button mode="contained" onPress={() => navigation.navigate('MeditateScreen')}>
+                Back
+            </Button>
         </View>
+        
     )
 }
 
-export default MeditateScreen2
 
 const styles = StyleSheet.create({
   root:{
-      display:"flex",
-      flexDirection:"column",
-      justifyContent:"center",
-      alignItems:"center",
+    display:"flex",
+    flexDirection:"column",
+    justifyContent:"center",
+    alignItems:"center",
+    marginTop: 65
   },
   heading:{
     fontSize:20,
