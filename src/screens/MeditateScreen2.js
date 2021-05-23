@@ -4,7 +4,8 @@ import{CountdownCircleTimer } from 'react-countdown-circle-timer'
 import Button from '../components/Button'
 import { Audio } from 'expo-av';
 import BackButton from '../components/BackButton'
-const MeditateScreen2= ({navigation}) => {
+
+export default function MeditateScreen2({ navigation }){
   const [play,setPlay]=useState(false);
   const [sound,setSound]=useState();
   async function playSound() {

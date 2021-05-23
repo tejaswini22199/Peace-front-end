@@ -11,9 +11,7 @@ import {
     MeditateScreen2,
     Dashboard
   } from '../screens'
-import JournalHome from '../screens/Journal'
-import MeditateScreen from '../screens/MeditateScreen'
-import MeditateScreen2 from '../screens/MeditateScreen2'
+
 const Stack = createStackNavigator();
 
 export default function Navigation(props) {
