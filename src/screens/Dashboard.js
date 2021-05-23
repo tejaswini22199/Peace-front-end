@@ -69,7 +69,6 @@ export default function Dashboard({ navigation }) {
            </TouchableOpacity>
             <Image
               source={require('../assets/Icons/notifications.png')}
-              onPress={() =>triggerCall}
               style={{
                 height: 130,
                 width: 100,
@@ -132,6 +131,8 @@ export default function Dashboard({ navigation }) {
             height: 113,
             width: 287,
           }}
+          onPress={() => navigation.navigate('Posts')}
+
         >
           <View
           style={{
@@ -147,6 +148,7 @@ export default function Dashboard({ navigation }) {
               color: "#fff",
               marginTop: -5
             }}
+
           >
             Pause app usage
           </Text>
@@ -167,6 +169,7 @@ export default function Dashboard({ navigation }) {
               width: 132,
               marginHorizontal: 10,
               height: 133.94,
+             
             }}
             onPress={() => navigation.navigate('MeditateScreen')}
           >
