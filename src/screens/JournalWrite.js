@@ -12,12 +12,22 @@ import {useDispatch, useSelector} from "react-redux";
 
 export default function JournalWrite({ navigation }) {
   const auth = useSelector((state) => state.auth);  
+  const defaultText = 'Put down your thoughts and reflections...'
   const dispatch = useDispatch();
-  const [ text, setText ] = useState({ value: 'Put down your thoughts and reflections...'});
+  const [ text, setText ] = useState({ value: defaultText});
 
   if(!auth.user){
       return null
   }
+  
+  const onJournalPost = () => {
+    if(text == defaultText){
+      return
+    }
+    
+  }
+
+  
   return (
     <Background>
       <Text style={styles.heads}>Journal</Text>
@@ -32,7 +42,7 @@ export default function JournalWrite({ navigation }) {
 
       <Button
         mode="contained"
-        onPress={() => navigation.navigate('Journal')}>
+        onPress={onJournalPost}>
         Save
       </Button>
 
