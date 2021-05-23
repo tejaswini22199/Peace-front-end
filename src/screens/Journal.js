@@ -12,7 +12,6 @@ import {useDispatch, useSelector} from "react-redux";
 
 export default function JournalHome({ navigation }) {
   const auth = useSelector((state) => state.auth);  
-  const dispatch = useDispatch();
   if(!auth.user){
       return null
   }
@@ -28,6 +27,11 @@ export default function JournalHome({ navigation }) {
         onPress={() => navigation.navigate('JournalWrite')}>
         Start Writing
       </Button>
+      <Button
+        mode="contained"
+        onPress={() => navigation.navigate('JournalList')}>
+        Previous Posts
+      </Button>
       <TouchableOpacity
         onPress={()=>navigation.navigate('Dashboard')}>
         <Image source={require('../assets/Icons/Frame11.png')} style={styles.pause} />
@@ -38,8 +42,8 @@ export default function JournalHome({ navigation }) {
 
 const styles = StyleSheet.create({
   heads: {
+    top: 20,
     position: 'absolute',
-    top: 50,
     fontWeight: 'bold',
     fontSize: 15,
     lineHeight: 33,

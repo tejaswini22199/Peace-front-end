@@ -3,7 +3,7 @@ import { API_URL } from '../config/constants';
 import {resetAuthAsyncStorage, setAuthAsyncStorage} from "./getAuthAsyncStorage";
 
 
-function login(username, password) {
+async function login(username, password) {
   const username_value = String(username.value)
   const passvalue = String(password.value)
 
@@ -25,7 +25,7 @@ function login(username, password) {
   });
 }
 
-function signup(username, email, password) {
+async function signup(username, email, password) {
   const username_value = String(username.value)
   const email_value = String(email.value)
   const passvalue = String(password.value)

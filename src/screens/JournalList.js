@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { View, StyleSheet, TouchableOpacity } from 'react-native'
 import { Text, TextInput } from 'react-native-paper'
 import Background from '../components/Background'
@@ -12,30 +12,24 @@ import {useDispatch, useSelector} from "react-redux";
 import axios from 'axios';
 import { API_URL } from '../config/constants';
 
-export default function JournalWrite({ navigation }) {
-  const auth = useSelector((state) => state.auth);  
+export default function JournalList({ navigation }) {
+  const auth = useSelector((state) => state.auth); 
+  const [ postData, setData ] = useState(null);
   const defaultText = 'Put down your thoughts and reflections...'
   const dispatch = useDispatch();
   const [ text, setText ] = useState({ value: defaultText});
   const [ loading, setLoading ] = useState(false);
 
-  if(!auth.user){
-      return null
-  }
-  
-  const onJournalPost = () => {
-    if(text.value == defaultText){
-      return
-    }
 
-    let formData = new FormData();    //formdata object
-    
+  useEffect(() => {
+    let formData = new FormData(); 
+
     formData.append('username', auth.user);   //append the values with key, value pair
-    formData.append('content', text.value); //
+    // formData.append('content', 'helloooo'); //
 
     console.log(`Token ${auth.token}`)
     setLoading(true);
-    axios.post(`${API_URL}/posts/create/`, formData,{
+    axios.post(`${API_URL}/posts/list/`, formData,{
       headers: {
         Authorization: `Token ${auth.token}`,
       },
@@ -43,32 +37,59 @@ export default function JournalWrite({ navigation }) {
     .then(async (response) => {
       try {
         console.log(response);
-        setLoading(false);
-        navigation.navigate('Dashboard');
+        console.log(response.data)
+        setData(response.data)
       } catch (e) { reject(e) }
     }).catch((err) => {
       return;
     });
-  }
-
+  }, []);
   
   return (
     <Background>
       <Text style={styles.heads}>Journal</Text>
       {/* <Header>Peace</Header> */}
-      <Text style={styles.description}>What are you feeling greatful for today?</Text>
+      <Text style={styles.description}>Your Previous Posts</Text>
       
-      <TextInput
-        multiline={true}
-        onChangeText={(text) => setText({ value: text })}
-        style={styles.textArea}
-        value={text.value}/>
+     
+      {postData && postData.map((data) => (
+        
+        <TouchableOpacity
+          style={{
+            alignItems: 'center',
+            backgroundColor: '#F19D89',
+            borderRadius: 7,
+            marginTop: 5,
+            justifyContent: 'center',
+            height: 100,
+            width: 287,
+          }}
+          key={data.post_id}
+        >
+          <View
+          style={{
+            flexDirection: "row",
+            marginTop: 12,
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: "500",
+              color: "#fff",
+              marginTop: -5
+            }}
+          >
+            {data.content}
+          </Text>
+          </View>
+        </TouchableOpacity>
+      ))}
 
       <Button
         mode="contained"
-        onPress={onJournalPost}
-        loading={loading}>
-        Save
+        onPress={()=>navigation.navigate('JournalWrite')}>
+        Wanna Write?
       </Button>
 
       <TouchableOpacity
