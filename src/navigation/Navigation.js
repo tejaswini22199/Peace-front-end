@@ -8,6 +8,7 @@ import {
     ResetPasswordScreen,
     JournalHome,
     JournalWrite,
+    JournalList,
     MeditateScreen,
     MeditateScreen2,
     Dashboard
@@ -78,5 +79,10 @@ export default function Navigation(props) {
               headerShown: false
           }}
           name="JournalWrite" component={JournalWrite}/>
+          <Stack.Screen 
+            options={{
+              headerShown: false
+          }}
+          name="JournalList" component={JournalList}/>
     </Stack.Navigator>;
 }
