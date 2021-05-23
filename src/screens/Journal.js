@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 50,
     fontWeight: 'bold',
-    size: 40,
-    lineHeight: 33,
+    fontSize:40,
+    lineHeight: 35,
     textAlign: 'center'
   },
   description:{

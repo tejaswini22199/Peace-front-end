@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     display:"flex",
     flexDirection:"row",
     alignItems:"center",
-    marginBottom:"20px"
+    marginBottom:20 
   },
   pause: {
     width: 100,

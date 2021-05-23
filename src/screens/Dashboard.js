@@ -10,25 +10,6 @@ import {getAuthAsyncStorage} from '../services/getAuthAsyncStorage'
 //   return <Image source={require('../assets/logo.png')} style={styles.image} />
 // }
 
-const styles = StyleSheet.create({
-  heart: {
-    width: 36.68,
-    height: 34.94,
-    marginBottom: 10
-  },
-  journal: {
-    width: 36.68,
-    height: 40,
-    marginBottom: 10
-  },
-  pause: {
-    width: 36.68,
-    height: 40,
-    marginTop: -15,
-    marginRight: 30
-  },
-})
-
 export default function Dashboard({ navigation }) {
   const auth = useSelector((state) => state.auth);
   
@@ -157,3 +138,21 @@ export default function Dashboard({ navigation }) {
       </View>
   );
 }
+const styles = StyleSheet.create({
+  heart: {
+    width: 36.68,
+    height: 34.94,
+    marginBottom: 10
+  },
+  journal: {
+    width: 36.68,
+    height: 40,
+    marginBottom: 10
+  },
+  pause: {
+    width: 36.68,
+    height: 40,
+    marginTop: -15,
+    marginRight: 30
+  },
+})

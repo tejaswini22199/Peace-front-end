@@ -294,9 +294,9 @@ return (
 
 const styles = StyleSheet.create({
   container: {
-    height:"100px",
+    height:100,
     flexGrow: 0,
-    width:"130px",
+    width:130,
 
   },
   item: {
