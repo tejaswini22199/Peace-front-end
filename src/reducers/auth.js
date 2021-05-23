@@ -53,10 +53,10 @@ import {
       }
   
       case AUTH_LOGGED_IN: {
-        let {token} = action.payload;
+        let {user, token} = action.payload;
         return {
           ...state,
-          user: action.username,
+          user,
           token,
           errorMessageLogin: null,
           loggingIn: false,

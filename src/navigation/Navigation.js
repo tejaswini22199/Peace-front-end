@@ -6,8 +6,10 @@ import {
     LoginScreen,
     RegisterScreen,
     ResetPasswordScreen,
-    Dashboard,
+    Dashboard
   } from '../screens'
+import JournalHome from '../screens/Journal'
+import MeditateScreen from '../screens/MeditateScreen'
 
 const Stack = createStackNavigator();
 
@@ -49,11 +51,21 @@ export default function Navigation(props) {
             options={{
               headerShown: false
             }}
+            name="Journal" component={JournalHome} />
+          <Stack.Screen 
+            options={{
+              headerShown: false
+            }}
             name="RegisterScreen" component={RegisterScreen} />
           <Stack.Screen 
             options={{
               headerShown: false
           }}
           name="ResetPasswordScreen" component={ResetPasswordScreen}/>
+          <Stack.Screen 
+            options={{
+              headerShown: false
+          }}
+          name="MeditateScreen" component={MeditateScreen}/>
     </Stack.Navigator>;
 }

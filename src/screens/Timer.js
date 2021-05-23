@@ -1,4 +1,3 @@
-
 import React,{ useState }  from 'react';
 import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
 
@@ -99,7 +98,82 @@ const Hours = [
     id: '24',
     title: '24',
   },
-
+  {
+    id: 41,
+    title: 41
+    },
+    {
+    id: 42,
+    title: 42
+    },
+    {
+    id: 43,
+    title: 43
+    },
+    {
+    id: 44,
+    title: 44
+    },
+    {
+    id: 45,
+    title: 45
+    },
+    {
+    id: 46,
+    title: 46
+    },
+    {
+    id: 47,
+    title: 47
+    },
+    {
+    id: 48,
+    title: 48
+    },
+    {
+    id: 49,
+    title: 49
+    },
+    {
+    id: 50,
+    title: 50
+    },
+    {
+    id: 51,
+    title: 51
+    },
+    {
+    id: 52,
+    title: 52
+    },
+    {
+    id: 53,
+    title: 53
+    },
+    {
+    id: 54,
+    title: 54
+    },
+    {
+    id: 55,
+    title: 55
+    },
+    {
+    id: 56,
+    title: 56
+    },
+    {
+    id: 57,
+    title: 57
+    },
+    {
+    id: 58,
+    title: 58
+    },
+    {
+    id: 59,
+    title: 59
+    },
 ];
 
 const Item = ({ item, onPress, backgroundColor, textColor }) => (
@@ -138,10 +212,10 @@ return (
 
 const styles = StyleSheet.create({
   container: {
-    height:"100px",
+    height:100,
     flexGrow: 0,
-    width:"130px",
-    
+    width:130,
+
   },
   item: {
     backgroundColor: "#6666ff",
@@ -153,7 +227,7 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
   list:{
-    
+
   },
 });
 

@@ -16,10 +16,9 @@ import {
     payload: loggingIn
   });
   
-  export const loggedIn = (data, username) => ({
+  export const loggedIn = (data) => ({
     type: AUTH_LOGGED_IN,
     payload: data,
-    username
   });
   
   export const errorLogIn = (errorMessage) => ({
@@ -42,7 +41,7 @@ import {
   export const login = (username, password) => (dispatch) => {
     dispatch(loggingIn(true));
     userService.login(username, password).then(async (res) => {
-      await dispatch(loggedIn(res.data, String(username.value)));
+      await dispatch(loggedIn(res.data));
       await navigate('Dashboard');
     }).catch((err) => {
       dispatch(errorLogIn('Wrong username or password'));
@@ -54,7 +53,7 @@ import {
   export const signup = (username, email, password) => (dispatch) => {
     dispatch(signingUp(true));
     userService.signup(username, email, password).then(async (res) => {
-      await dispatch(loggedIn(res.data), username);
+      await dispatch(loggedIn(res.data));
       await navigate('Dashboard');
     }).catch((err) => {
       dispatch(errorSignUp('Username already exists'));

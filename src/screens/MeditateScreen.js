@@ -1,12 +1,16 @@
-
-
 import React,{useState} from 'react'
 import { StyleSheet, Text, View,Image, ImageBackground } from 'react-native'
 import Timer from './Timer'
+import { TouchableOpacity } from 'react-native'
 // import BackButton from '../components/BackButton'
 import Button from '../components/Button'
 import TimerMinutes from './TimerMinutes'
+import MeditateScreen2 from './MeditateScreen2'
 export default function MeditateScreen({ navigation }){
+//  const [time,setTime]=useState({
+//     hours:new Date.getHours(),
+//     minutes:new Date.getMinutes(),
+//  })
 const [Minutes,setMinutes]=useState('');
 const [Hours,setHours]=useState('');
     return (
@@ -19,7 +23,6 @@ const [Hours,setHours]=useState('');
           <View style={styles.root}>
             <Text style={styles.heading}>Meditate</Text>  
             <Image style={styles.image} source={require('../assets/meditate1.png')}/>
-           
             <View  style={styles.subheading}>
             <Text style={styles.text}>We love you to join our </Text>
             <Text style={styles.text}>Meditation Sessions</Text>
@@ -28,9 +31,13 @@ const [Hours,setHours]=useState('');
             <Timer getHours={hours=>setHours(hours)}/>
             <TimerMinutes getMinutes={minutes=>setMinutes(minutes)}/>
             </View>
-            <Button mode="contained"  onPress={() => navigation.navigate('MeditateScreen2')}>
+            <Button mode="contained" onPress={() => navigation.navigate('MeditateScreen2')}>
                 Start
             </Button>
+            <TouchableOpacity
+            onPress={()=>navigation.navigate('Dashboard')}>
+             <Image source={require('../assets/Icons/Frame11.png')} style={styles.pause} />
+           </TouchableOpacity>
             </View>
         </View>
     )
@@ -41,6 +48,7 @@ const styles = StyleSheet.create({
     flexDirection:"column",
     justifyContent:"center",
     alignItems:"center",
+    marginTop: 65
   },
   heading:{
     fontSize:20,
@@ -53,7 +61,7 @@ const styles = StyleSheet.create({
     margin:10,
   },
   subheading:{
-   
+
     width:150,
     display:"flex",
     flexDirection:"column",
@@ -69,8 +77,11 @@ const styles = StyleSheet.create({
     display:"flex",
     flexDirection:"row",
     alignItems:"center",
-    marginBottom:"20px"
+    marginBottom:20 
+  },
+  pause: {
+    width: 100,
+    height: 100,
+    marginBottom: 0
   }
 })
-
-
