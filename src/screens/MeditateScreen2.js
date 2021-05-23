@@ -2,7 +2,8 @@ import React,{useState} from 'react'
 import { StyleSheet, Text, View,Image,TouchableOpacity } from 'react-native'
 import{CountdownCircleTimer } from 'react-countdown-circle-timer'
 import { Audio } from 'expo-av';
-const MeditateScreen2= () => {
+import BackButton from '../components/BackButton'
+const MeditateScreen2= ({navigation}) => {
   const [play,setPlay]=useState(false);
   const [sound,setSound]=useState();
   async function playSound() {
@@ -30,7 +31,8 @@ const MeditateScreen2= () => {
 
     return (
         <View style={styles.root}>
-            <Text style={styles.heading}>Meditatation</Text>  
+            <BackButton goBack={navigation.goBack} />
+            <Text style={styles.heading}>Meditation</Text>  
             <TouchableOpacity style={styles.topbar}onPress={()=>{
               console.log(play);
               setPlay(!play);
