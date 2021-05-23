@@ -3,14 +3,14 @@ import { StyleSheet, Text, View,Image,TouchableOpacity } from 'react-native'
 import{CountdownCircleTimer } from 'react-countdown-circle-timer'
 import Button from '../components/Button'
 import { Audio } from 'expo-av';
-
-export default function MeditateScreen({ navigation }){
+import BackButton from '../components/BackButton'
+const MeditateScreen2= ({navigation}) => {
   const [play,setPlay]=useState(false);
   const [sound,setSound]=useState();
   async function playSound() {
     console.log('Loading Sound');
     const { sound } = await Audio.Sound.createAsync(
-      require('../assets/audiofiles/Hello.mp3')
+      require('../assets/audiofiles/hello1.mp3')
      
     );
     setSound(sound);
@@ -32,7 +32,8 @@ export default function MeditateScreen({ navigation }){
 
     return (
         <View style={styles.root}>
-            <Text style={styles.heading}>Meditatation</Text>  
+            <BackButton goBack={navigation.goBack} />
+            <Text style={styles.heading}>Meditation</Text>  
             <TouchableOpacity style={styles.topbar}onPress={()=>{
               console.log(play);
               setPlay(!play);
@@ -56,8 +57,8 @@ export default function MeditateScreen({ navigation }){
       return [true, 1500] // repeat animation in 1.5 seconds
     }}
     isPlaying
-    duration={10}
-    colors={[["#FFFFFF", 0.2], ["#7012CE", 0.8]]}
+    duration={1000}
+    colors={[["#FFFFFF", 0.1], ["#7012CE", 0.9]]}
   />
   </View>
   <View style={styles.bottom}>

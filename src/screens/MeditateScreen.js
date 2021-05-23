@@ -6,6 +6,7 @@ import { TouchableOpacity } from 'react-native'
 import Button from '../components/Button'
 import TimerMinutes from './TimerMinutes'
 import MeditateScreen2 from './MeditateScreen2'
+import BackButton from '../components/BackButton'
 export default function MeditateScreen({ navigation }){
 //  const [time,setTime]=useState({
 //     hours:new Date.getHours(),
@@ -19,7 +20,7 @@ const [Hours,setHours]=useState('');
             height: "100%",
             backgroundColor: "rgb(241,235,228)",
           }}>
-          {/* <BackButton goBack={navigation.goBack} /> */}
+             <BackButton goBack={navigation.goBack} />
           <View style={styles.root}>
             <Text style={styles.heading}>Meditate</Text>  
             <Image style={styles.image} source={require('../assets/meditate1.png')}/>
