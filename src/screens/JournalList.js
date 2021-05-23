@@ -14,7 +14,7 @@ import { API_URL } from '../config/constants';
 
 export default function JournalList({ navigation }) {
   const auth = useSelector((state) => state.auth); 
-  const [ postData, setData ] = useState(null);
+  const [ postData, setData ] = useState();
   const defaultText = 'Put down your thoughts and reflections...'
   const dispatch = useDispatch();
   const [ text, setText ] = useState({ value: defaultText});
