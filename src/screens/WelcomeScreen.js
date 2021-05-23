@@ -67,6 +67,6 @@ const styles = StyleSheet.create({
  illus: {
     width:350,
     height:320,
-    align: 'center'
+    alignSelf: 'center'
   }
 })
