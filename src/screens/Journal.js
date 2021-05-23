@@ -17,7 +17,7 @@ export default function JournalHome({ navigation }) {
       return null
   }
   return (
-    <Background>
+    <Background >
       <Text style={styles.heads}>Journal</Text>
       {/* <Header>Peace</Header> */}
       <Image source={require('../assets/Icons/Illustration1-2.png')} style={styles.illus} />
@@ -41,9 +41,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 50,
     fontWeight: 'bold',
-    size: 40,
+    fontSize: 15,
     lineHeight: 33,
     textAlign: 'center'
+    
   },
   description:{
     fontWeight: 'bold',

@@ -35,11 +35,12 @@ export default function JournalWrite({ navigation }) {
         onPress={() => navigation.navigate('Journal')}>
         Save
       </Button>
-      
+
       <TouchableOpacity
         onPress={()=>navigation.navigate('Dashboard')}>
         <Image source={require('../assets/Icons/Frame11.png')} style={styles.pause} />
       </TouchableOpacity>
+    
     </Background>
   )
 }
@@ -53,10 +54,9 @@ const styles = StyleSheet.create({
     margin: 10
   },
   heads: {
-    position: 'absolute',
     top: 50,
     fontWeight: 'bold',
-    size: 40,
+    fontSize: 15,
     lineHeight: 33,
     textAlign: 'center'
   },
