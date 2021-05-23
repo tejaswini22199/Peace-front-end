@@ -6,6 +6,9 @@ import {
     LoginScreen,
     RegisterScreen,
     ResetPasswordScreen,
+    JournalHome,
+    MeditateScreen,
+    MeditateScreen2,
     Dashboard
   } from '../screens'
 import JournalHome from '../screens/Journal'

@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { StyleSheet, Text, View,Image,TouchableOpacity } from 'react-native'
 import{CountdownCircleTimer } from 'react-countdown-circle-timer'
+import Button from '../components/Button'
 import { Audio } from 'expo-av';
 import BackButton from '../components/BackButton'
 const MeditateScreen2= ({navigation}) => {
@@ -44,7 +45,7 @@ const MeditateScreen2= ({navigation}) => {
               } }>
               {
                    play?
-                   <Image style={styles.iconup} source={require('../assets/volumeUp.png')}></Image>
+                   <Image style={styles.iconup} source={require('../assets/VolumeUp.png')}></Image>
                    :
                    <Image style={styles.iconoff} source={require('../assets/Volumeoff.png')}></Image>
               }
@@ -70,18 +71,22 @@ const MeditateScreen2= ({navigation}) => {
       <Text>Stop</Text>
     </TouchableOpacity>
   </View>
+  <Button mode="contained" onPress={() => navigation.navigate('MeditateScreen')}>
+                Back
+            </Button>
         </View>
+        
     )
 }
 
-export default MeditateScreen2
 
 const styles = StyleSheet.create({
   root:{
-      display:"flex",
-      flexDirection:"column",
-      justifyContent:"center",
-      alignItems:"center",
+    display:"flex",
+    flexDirection:"column",
+    justifyContent:"center",
+    alignItems:"center",
+    marginTop: 65
   },
   heading:{
     fontSize:20,
