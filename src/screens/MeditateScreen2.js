@@ -7,19 +7,27 @@ import BackButton from '../components/BackButton'
 
 export default function MeditateScreen2({ navigation }){
   const [play,setPlay]=useState(false);
-  const [sound,setSound]=useState();
+  const [sound,setSound]=useState('');
+  const remainingTime = 1000;
+  const getTimeSeconds = (time) => (remainingTime- time) | 0;
+  const renderTime = (dimension, time) => {
+    return (
+      <div className="time-wrapper">
+        <div className="time">{time}</div>
+        <div>{dimension}</div>
+      </div>
+    );
+  };
   async function playSound() {
-    console.log('Loading Sound');
     const { sound } = await Audio.Sound.createAsync(
       require('../assets/audiofiles/hello1.mp3')
      
     );
     setSound(sound);
-
-    console.log('Playing Sound');
     await sound.playAsync(); }
   async function stopSound(){
     console.log('Stopping Sound');
+    await sound.stopAsync();
     setSound('');
   }
 
@@ -35,15 +43,15 @@ export default function MeditateScreen2({ navigation }){
         <View style={styles.root}>
             <BackButton goBack={navigation.goBack} />
             <Text style={styles.heading}>Meditation</Text>  
-            <TouchableOpacity style={styles.topbar}onPress={()=>{
-              console.log(play);
-              setPlay(!play);
-              console.log(play);
+            <TouchableOpacity style={styles.topbar}onPress={()=>
+            {
+              setPlay(!play)
               if(!play)
               playSound();
               else
               stopSound();
-              } }>
+            }
+              }>
               {
                    play?
                    <Image style={styles.iconup} source={require('../assets/VolumeUp.png')}></Image>
@@ -51,7 +59,8 @@ export default function MeditateScreen2({ navigation }){
                    <Image style={styles.iconoff} source={require('../assets/Volumeoff.png')}></Image>
               }
           </TouchableOpacity>
-            <View style={styles.timer}>
+            <View style={styles.timer}> 
+
   <CountdownCircleTimer
     onComplete={() => {
       // do your stuff here
@@ -59,8 +68,17 @@ export default function MeditateScreen2({ navigation }){
     }}
     isPlaying
     duration={1000}
-    colors={[["#FFFFFF", 0.1], ["#7012CE", 0.9]]}
-  />
+    colors={[["#7012CE", 1]]}
+    initialRemainingTime={remainingTime}
+    onComplete={(totalElapsedTime) => [
+      remainingTime - totalElapsedTime > 0
+    ]}
+    
+  >
+    {({ elapsedTime }) =>
+          renderTime("seconds", getTimeSeconds(elapsedTime))
+        }
+    </CountdownCircleTimer>
   </View>
   <View style={styles.bottom}>
     <TouchableOpacity style={styles.playbtns} onPress={()=>stopSound()}>
@@ -78,7 +96,7 @@ export default function MeditateScreen2({ navigation }){
         </View>
         
     )
-}
+} 
 
 
 const styles = StyleSheet.create({

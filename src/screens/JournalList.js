@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { View, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, TouchableOpacity ,ScrollView} from 'react-native'
 import { Text, TextInput } from 'react-native-paper'
 import Background from '../components/Background'
 import Logo from '../components/Logo'
@@ -51,18 +51,22 @@ export default function JournalList({ navigation }) {
       {/* <Header>Peace</Header> */}
       <Text style={styles.description}>Your Previous Posts</Text>
       
-     
+     <ScrollView showsVerticalScrollIndicator={false} style={{
+       width:300,
+       height:300,
+     }}>
       {postData && postData.map((data) => (
         
         <TouchableOpacity
           style={{
             alignItems: 'center',
-            backgroundColor: '#F19D89',
+            backgroundColor: '#B4EAF7',
             borderRadius: 7,
             marginTop: 5,
             justifyContent: 'center',
             height: 100,
             width: 287,
+            color:"black"
           }}
           key={data.post_id}
         >
@@ -76,7 +80,7 @@ export default function JournalList({ navigation }) {
             style={{
               fontSize: 18,
               fontWeight: "500",
-              color: "#fff",
+              color: "black",
               marginTop: -5
             }}
           >
@@ -85,7 +89,7 @@ export default function JournalList({ navigation }) {
           </View>
         </TouchableOpacity>
       ))}
-
+     </ScrollView>
       <Button
         mode="contained"
         onPress={()=>navigation.navigate('JournalWrite')}>
@@ -114,7 +118,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 15,
     lineHeight: 33,
-    textAlign: 'center'
+    textAlign: 'center',
+    marginBottom:10,
   },
   description:{
     fontWeight: 'bold',
