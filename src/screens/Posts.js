@@ -1,46 +1,63 @@
 import React, { Component } from 'react'
 import { View, Text, Dimensions, StyleSheet ,Image} from 'react-native'
 import { SwiperFlatList } from 'react-native-swiper-flatlist'
+import BackButton from '../components/BackButton'
 
 export default function Posts({ navigation }) {
   return (
+      
       <SwiperFlatList
         autoplay
-        autoplayDelay={100}
+        autoplayDelay={3}
         autoplayLoop
         index={2}
         showPagination
       >
         <View style={styles.child}>
+        <BackButton goBack={navigation.goBack} />
+
           <View style={styles.card}>
             <Image
             style={styles.images}
-                source={{uri:"https://images.unsplash.com/photo-1590767187868-b8e9ece0974b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80"}}
+            source={require('../assets/1.png')}
             />
+                        <Text>What is Depression?</Text>
+
           </View>
         </View>
         <View style={styles.child}>
+        <BackButton goBack={navigation.goBack} />
+
         <View style={styles.card}>
         <Image
             style={styles.images}
-                source={{uri:"https://images.unsplash.com/photo-1590767187868-b8e9ece0974b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80"}}
+            source={require('../assets/2.png')}
             />
+            <Text>What is Depression?</Text>
           </View>
         </View>
         <View style={styles.child}>
+        <BackButton goBack={navigation.goBack} />
+
         <View style={styles.card}>
         <Image
             style={styles.images}
-                source={{uri:"https://images.unsplash.com/photo-1590767187868-b8e9ece0974b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80"}}
+                source={require('../assets/3.png')}
             />
+                        <Text>What is Depression?</Text>
+
           </View>
         </View>
         <View style={styles.child}>
+        <BackButton goBack={navigation.goBack} />
+
         <View style={styles.card}>
         <Image
             style={styles.images}
-                source={{uri:"https://images.unsplash.com/photo-1590767187868-b8e9ece0974b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80"}}
+            source={require('../assets/4.png')}
             />
+                        <Text>What is Depression?</Text>
+
           </View>
         </View>
       </SwiperFlatList>
@@ -54,18 +71,18 @@ const styles = StyleSheet.create({
       width, 
       justifyContent: 'center' ,
       alignItems: 'center',
-      backgroundColor:"#ccc"
+      backgroundColor:"#fff"
     },
     card:{
        
         width:width/1.3,
         height:"50%",
         borderRadius:10,
-        backgroundColor:"#fff",
+        backgroundColor:"rgb(252,238,237)",
     },
     images:{
-        borderTopLeftRadius:20,
-        borderTopRightRadius:20,
+        borderTopLeftRadius:10,
+        borderTopRightRadius:10,
         height:"80%",
         width:"100%",
     },
