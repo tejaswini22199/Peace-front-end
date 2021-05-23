@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { View, StyleSheet, TouchableOpacity } from 'react-native'
-import { Text } from 'react-native-paper'
+import { Text, TextInput } from 'react-native-paper'
 import Background from '../components/Background'
 import Logo from '../components/Logo'
 // import Header from '../components/Header'
@@ -10,50 +10,69 @@ import Paragraph from '../components/Paragraph'
 import { theme } from '../core/theme'
 import {useDispatch, useSelector} from "react-redux";
 
-export default function JournalHome({ navigation }) {
+export default function JournalWrite({ navigation }) {
   const auth = useSelector((state) => state.auth);  
+  const defaultText = 'Put down your thoughts and reflections...'
   const dispatch = useDispatch();
+  const [ text, setText ] = useState({ value: defaultText});
+
   if(!auth.user){
       return null
   }
+  
+  const onJournalPost = () => {
+    if(text == defaultText){
+      return
+    }
+    
+  }
+
+  
   return (
-    <Background >
+    <Background>
       <Text style={styles.heads}>Journal</Text>
       {/* <Header>Peace</Header> */}
-      <Image source={require('../assets/Icons/Illustration1-2.png')} style={styles.illus} />
       <Text style={styles.description}>What are you feeling greatful for today?</Text>
-      <Image source={require('../assets/Icons/DownSwirly.png')} style={styles.arrowline} />
+      
+      <TextInput
+        multiline={true}
+        onChangeText={(text) => setText({ value: text })}
+        style={styles.textArea}
+        value={text.value}/>
+
       <Button
         mode="contained"
-        onPress={() => navigation.navigate('JournalWrite')}>
-        Start Writing
+        onPress={onJournalPost}>
+        Save
       </Button>
+
       <TouchableOpacity
         onPress={()=>navigation.navigate('Dashboard')}>
         <Image source={require('../assets/Icons/Frame11.png')} style={styles.pause} />
       </TouchableOpacity>
+    
     </Background>
   )
 }
 
 const styles = StyleSheet.create({
+  textArea:{
+    width: 283,
+    height: 378,
+    backgroundColor: '#ECF1F4',
+    borderRadius:10,
+    margin: 10
+  },
   heads: {
-    position: 'absolute',
     top: 50,
     fontWeight: 'bold',
-<<<<<<< HEAD
-    fontSize:40,
-    lineHeight: 35,
-=======
     fontSize: 15,
     lineHeight: 33,
->>>>>>> journal
     textAlign: 'center'
-    
   },
   description:{
     fontWeight: 'bold',
-    fontSize: 25,
+    fontSize: 20,
     textAlign: 'center'
   },
   row: {

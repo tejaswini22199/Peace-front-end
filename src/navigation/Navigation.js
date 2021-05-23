@@ -7,11 +7,11 @@ import {
     RegisterScreen,
     ResetPasswordScreen,
     JournalHome,
+    JournalWrite,
     MeditateScreen,
     MeditateScreen2,
     Dashboard
   } from '../screens'
-
 const Stack = createStackNavigator();
 
 export default function Navigation(props) {
@@ -73,5 +73,10 @@ export default function Navigation(props) {
               headerShown: false
           }}
           name="MeditateScreen2" component={MeditateScreen2}/>
+          <Stack.Screen 
+            options={{
+              headerShown: false
+          }}
+          name="JournalWrite" component={JournalWrite}/>
     </Stack.Navigator>;
 }
