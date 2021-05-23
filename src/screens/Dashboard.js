@@ -11,7 +11,6 @@ import { getAuthAsyncStorage } from '../services/getAuthAsyncStorage'
 // export default function Logo() {
 //   return <Image source={require('../assets/logo.png')} style={styles.image} />
 // }
-
 export default function Dashboard({ navigation }) {
   const auth = useSelector((state) => state.auth)
   const inputValue ='9999999999';
@@ -143,15 +142,14 @@ export default function Dashboard({ navigation }) {
           <Image source={require('../assets/Icons/Pause.png')} style={styles.pause} />
           <Text
             style={{
-              fontSize: 18,
+              fontSize: 20,
               fontWeight: "500",
               color: "#fff",
               marginTop: -5
             }}
 
           >
-            Pause app usage
-          </Text>
+Discover          </Text>
           </View>
         </TouchableOpacity>
         <View
