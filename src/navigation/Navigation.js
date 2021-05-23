@@ -10,7 +10,7 @@ import {
   } from '../screens'
 import JournalHome from '../screens/Journal'
 import MeditateScreen from '../screens/MeditateScreen'
-
+import MeditateScreen2 from '../screens/MeditateScreen2'
 const Stack = createStackNavigator();
 
 export default function Navigation(props) {
@@ -67,5 +67,10 @@ export default function Navigation(props) {
               headerShown: false
           }}
           name="MeditateScreen" component={MeditateScreen}/>
+          <Stack.Screen 
+            options={{
+              headerShown: false
+          }}
+          name="MeditateScreen2" component={MeditateScreen2}/>
     </Stack.Navigator>;
 }

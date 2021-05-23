@@ -8,7 +8,7 @@ const MeditateScreen2= () => {
   async function playSound() {
     console.log('Loading Sound');
     const { sound } = await Audio.Sound.createAsync(
-      require('../assets/audiofiles/Hello.mp3')
+      require('../assets/audiofiles/hello1.mp3')
      
     );
     setSound(sound);
@@ -54,8 +54,8 @@ const MeditateScreen2= () => {
       return [true, 1500] // repeat animation in 1.5 seconds
     }}
     isPlaying
-    duration={10}
-    colors={[["#FFFFFF", 0.2], ["#7012CE", 0.8]]}
+    duration={1000}
+    colors={[["#FFFFFF", 0.1], ["#7012CE", 0.9]]}
   />
   </View>
   <View style={styles.bottom}>
