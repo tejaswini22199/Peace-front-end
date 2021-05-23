@@ -44,7 +44,7 @@ export default function JournalWrite({ navigation }) {
       try {
         console.log(response);
         setLoading(false);
-        navigation.navigate('Dashboard');
+        navigation.navigate('JournalList');
       } catch (e) { reject(e) }
     }).catch((err) => {
       return;

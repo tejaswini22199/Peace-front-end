@@ -29,7 +29,8 @@ const [Hours,setHours]=useState('');
             <Text style={styles.text}>Meditation Sessions</Text>
             </View>
             <View style={styles.timer}>
-            <Timer getHours={hours=>setHours(hours)}/>
+            <Timer  getHours={hours=>setHours(hours)}/>
+            <Text style={styles.colon}>:</Text>
             <TimerMinutes getMinutes={minutes=>setMinutes(minutes)}/>
             </View>
             <Button mode="contained" onPress={() => navigation.navigate('MeditateScreen2')}>
@@ -78,7 +79,18 @@ const styles = StyleSheet.create({
     display:"flex",
     flexDirection:"row",
     alignItems:"center",
-    marginBottom:20 
+    justifyContent:"center",
+    marginBottom:20,
+    width:253,
+    height: 123,
+    backgroundColor:"#6666ff",
+    borderRadius:13,
+
+  },
+  colon:{
+    fontSize:45,
+    fontWeight:"bold",
+    color:"#fff"
   },
   pause: {
     width: 100,

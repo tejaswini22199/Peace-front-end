@@ -39,6 +39,7 @@ export default function JournalList({ navigation }) {
         console.log(response);
         console.log(response.data)
         setData(response.data)
+        setLoading(false);
       } catch (e) { reject(e) }
     }).catch((err) => {
       return;

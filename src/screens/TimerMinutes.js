@@ -287,6 +287,7 @@ return (
     renderItem={renderItem}
     keyExtractor={(item) => item.id}
     extraData={selectedId}
+    showsVerticalScrollIndicator={false}
   />
 </SafeAreaView>
 );
@@ -306,7 +307,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   title: {
-    fontSize: 32,
+    fontSize: 45,
   },
   list:{
 
