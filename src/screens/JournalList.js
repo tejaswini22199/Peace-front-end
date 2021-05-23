@@ -91,7 +91,9 @@ export default function JournalList({ navigation }) {
               fontSize: 18,
               fontWeight: "500",
               color: "black",
-              marginTop: -5
+              marginTop: -5,
+              margin: 10,
+              textAlign: "center"
             }}
           >
             {data.content}Hi
