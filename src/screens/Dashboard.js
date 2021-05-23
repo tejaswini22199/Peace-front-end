@@ -32,8 +32,7 @@ export default function Dashboard({ navigation }) {
   // const { errorMessageLogout } = auth;
 
   return (
-    <View>
-      <StatusBar hidden={true} />
+   
       <View
         style={{
           width: '100%',
@@ -42,6 +41,8 @@ export default function Dashboard({ navigation }) {
           alignItems: 'center',
         }}
       >
+        <StatusBar hidden={true} />
+
         <View
           style={{
             height: 300,
@@ -204,7 +205,7 @@ export default function Dashboard({ navigation }) {
           LogOut
         </Button>
       </View>
-    </View>
+
   )
 }
 const styles = StyleSheet.create({
