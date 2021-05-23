@@ -42,7 +42,7 @@ import {
     dispatch(loggingIn(true));
     userService.login(username, password).then(async (res) => {
       await dispatch(loggedIn(res.data));
-      await navigate('Dashboard');
+      await navigate('Screen');
     }).catch((err) => {
       dispatch(errorLogIn('Wrong username or password'));
     }).finally(() => {
@@ -54,7 +54,7 @@ import {
     dispatch(signingUp(true));
     userService.signup(username, email, password).then(async (res) => {
       await dispatch(loggedIn(res.data));
-      await navigate('Dashboard');
+      await navigate('Screen');
     }).catch((err) => {
       dispatch(errorSignUp('Username already exists'));
     }).finally(() => {
@@ -80,6 +80,7 @@ import {
     dispatch(loggingOut(true));
     await userService.logout(getState).then((res) => {
       dispatch(loggedOut());
+      navigate('StartScreen');
     }).catch((err) => {
       dispatch(errorLogOut('Error logging out.'));
     }).finally(() => {
