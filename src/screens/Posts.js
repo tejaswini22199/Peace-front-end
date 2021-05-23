@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Dimensions, StyleSheet ,Image} from 'react-native'
+import { View, Text, TouchableOpacity,Linking,Dimensions, StyleSheet ,Image} from 'react-native'
 import { SwiperFlatList } from 'react-native-swiper-flatlist'
 import BackButton from '../components/BackButton'
 
@@ -16,49 +16,62 @@ export default function Posts({ navigation }) {
         <View style={styles.child}>
         <BackButton goBack={navigation.goBack} />
 
-          <View style={styles.card}>
+          <TouchableOpacity style={styles.card}
+          onPress={() => {
+              Linking.openURL('https://aboutreact.com');
+            }}
+          >
             <Image
             style={styles.images}
             source={require('../assets/1.png')}
             />
-                        <Text>What is Depression?</Text>
+         <Text style={styles.links}>What is Depression?</Text>
 
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.child}>
         <BackButton goBack={navigation.goBack} />
 
-        <View style={styles.card}>
+        <TouchableOpacity style={styles.card}
+         onPress={() => {
+              Linking.openURL('https://aboutreact.com');
+            }}>
         <Image
             style={styles.images}
             source={require('../assets/2.png')}
             />
-            <Text>What is Depression?</Text>
-          </View>
+            <Text style={styles.links}>Social Anxiety Disorder</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.child}>
         <BackButton goBack={navigation.goBack} />
 
-        <View style={styles.card}>
+        <TouchableOpacity style={styles.card}
+         onPress={() => {
+              Linking.openURL('https://aboutreact.com');
+            }}>
         <Image
             style={styles.images}
                 source={require('../assets/3.png')}
             />
-                        <Text>What is Depression?</Text>
+                        <Text style={styles.links}>Self Confidence</Text>
 
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.child}>
         <BackButton goBack={navigation.goBack} />
 
-        <View style={styles.card}>
+        <TouchableOpacity style={styles.card}
+         onPress={() => {
+              Linking.openURL('https://aboutreact.com');
+            }}>
         <Image
             style={styles.images}
             source={require('../assets/4.png')}
             />
-                        <Text>What is Depression?</Text>
+                        <Text style={styles.links}>What is Depression?</Text>
 
-          </View>
+          </TouchableOpacity>
         </View>
       </SwiperFlatList>
   )
@@ -89,4 +102,12 @@ const styles = StyleSheet.create({
   text: { 
       fontSize: width * 0.5, 
       textAlign: 'center' },
+    links:{
+        textAlign: "right",
+        fontSize:25,
+        fontWeight:"bold",
+        marginTop:15,
+        marginRight:10,
+        color: "#121338",
+    }
 })
