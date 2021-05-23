@@ -1,4 +1,4 @@
-# Peace - FrontEnd
+# Pause - FrontEnd
 
 ## How to use?
 
