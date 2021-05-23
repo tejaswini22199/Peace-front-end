@@ -14,7 +14,16 @@ import { API_URL } from '../config/constants';
 
 export default function JournalList({ navigation }) {
   const auth = useSelector((state) => state.auth); 
-  const [ postData, setData ] = useState(null);
+  
+  const [ postData, setData ] = useState(
+    [
+      {key:1,content:"step by Step we will win together"},
+      {key:2,content:"Consistent and Hardwork gets you success"},
+      {key:3,content:"Believe in yourself"},
+      {key:4,content:"step by Step we will win together"},
+      {key:5,content:"step by Step we will win together"},
+    ]
+  );
   const defaultText = 'Put down your thoughts and reflections...'
   const dispatch = useDispatch();
   const [ text, setText ] = useState({ value: defaultText});
@@ -50,7 +59,7 @@ export default function JournalList({ navigation }) {
       <Text style={styles.heads}>Journal</Text>
       {/* <Header>Peace</Header> */}
       <Text style={styles.description}>Your Previous Posts</Text>
-      
+      <View style={{width:300,height:300}}>
      <ScrollView showsVerticalScrollIndicator={false} style={{
        width:300,
        height:300,
@@ -84,12 +93,13 @@ export default function JournalList({ navigation }) {
               marginTop: -5
             }}
           >
-            {data.content}
+            {data.content}Hi
           </Text>
           </View>
         </TouchableOpacity>
       ))}
      </ScrollView>
+     </View>
       <Button
         mode="contained"
         onPress={()=>navigation.navigate('JournalWrite')}>
