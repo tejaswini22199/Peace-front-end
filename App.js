@@ -9,26 +9,7 @@ import {useEffect, useState} from "react";
 import {loggedIn} from "./src/actions/auth";
 import {getAuthAsyncStorage} from "./src/services/getAuthAsyncStorage";
 import { theme } from './src/core/theme'
-<<<<<<< HEAD
-import {
-  StartScreen,
-  LoginScreen,
-  RegisterScreen,
-  ResetPasswordScreen,
-  Dashboard,
-  MeditateScreen
-} from './src/screens'
-||||||| f262e12
-import {
-  StartScreen,
-  LoginScreen,
-  RegisterScreen,
-  ResetPasswordScreen,
-  Dashboard,
-} from './src/screens'
-=======
 import 'react-native-gesture-handler';
->>>>>>> 6e0c2d52ab9e58837c66c5bcf31dffd6a4b713e4
 
 
 export default function App() {
@@ -54,24 +35,6 @@ export default function App() {
   }
 
   return (
-<<<<<<< HEAD
-    <StoreProvider store={store}>
-      <PaperProvider theme={theme}>
-        <NavigationContainer ref={navigationRef}>
-          <Navigation />
-        </NavigationContainer>
-      </PaperProvider>
-    </StoreProvider>
-  )
-}
-
-
- { <Stack.Navigator
-||||||| f262e12
-    <Provider theme={theme}>
-      <NavigationContainer>
-        <Stack.Navigator
-=======
     <StoreProvider store={store}>
       <PaperProvider theme={theme}>
         <NavigationContainer ref={navigationRef}>
@@ -84,7 +47,6 @@ export default function App() {
 
 
  {/* <Stack.Navigator
->>>>>>> 6e0c2d52ab9e58837c66c5bcf31dffd6a4b713e4
           initialRouteName="StartScreen"
           screenOptions={{
             headerShown: false,
@@ -98,17 +60,4 @@ export default function App() {
             name="ResetPasswordScreen"
             component={ResetPasswordScreen}
           />
-<<<<<<< HEAD
-          <Stack.Screen name="MeditateScreen" component={MeditateScreen}/>
-        </Stack.Navigator>
- }
-     
-||||||| f262e12
-        </Stack.Navigator>
-      </NavigationContainer>
-    </Provider>
-  )
-}
-=======
         </Stack.Navigator> */}
->>>>>>> 6e0c2d52ab9e58837c66c5bcf31dffd6a4b713e4

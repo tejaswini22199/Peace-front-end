@@ -29,6 +29,7 @@ export default function Navigation(props) {
             component={StartScreen}
         />
         ) : (
+
         <Stack.Screen
               options={{
                 headerShown: false
@@ -36,6 +37,8 @@ export default function Navigation(props) {
             name="Dashboard"
             component={Dashboard}
         />
+       
+       
         )}
           <Stack.Screen 
             options={{

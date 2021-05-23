@@ -120,12 +120,4 @@ export default function Dashboard({ navigation }) {
       </View>
       </View>
   );
-<<<<<<< HEAD
 }
-||||||| f262e12
-}
-
-
-=======
-}
->>>>>>> 6e0c2d52ab9e58837c66c5bcf31dffd6a4b713e4
